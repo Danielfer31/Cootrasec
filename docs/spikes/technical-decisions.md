@@ -1,5 +1,29 @@
 # Cootrasec Spike Decisions
 
+## Narrative
+
+**Decision:** Use an image sequence for the high-impact desktop transformation,
+with synchronized video for balanced/lite delivery and a still-image layout for
+reduced motion.
+
+**Evidence:**
+
+| Variant | Frames | Total bytes | Behavior |
+|---|---:|---:|---|
+| Desktop image sequence | 48 | `2.72 MB` | Precise forward and reverse scroll; passed desktop and mobile automation |
+| Desktop synchronized video | equivalent duration | `0.38 MB` | Much smaller; suitable when exact frame seeking remains stable |
+| Lite image sequence | 16 | `0.41 MB` | Stable fallback with explicit frames |
+| Lite synchronized video | equivalent duration | `0.11 MB` | Smallest moving variant |
+
+The image sequence remains inside the approved desktop budget and provides the
+most predictable reverse-scroll behavior. Video is approximately seven times
+smaller and should be used where resource cost matters more than exact
+frame-level control. Reduced motion must not pin the scene.
+
+**Fallback:** If the production transformation sequence exceeds the approved
+budget or seeking becomes unstable, use synchronized video. If video seeking is
+also unstable, use layered still images.
+
 ## Showroom
 
 **Decision:** React Three Fiber (R3F) for the primary interactive showroom.
@@ -40,3 +64,27 @@ descriptions, and selected-vehicle behavior outside WebGL.
 **Remaining production validation:** Replace the procedural vehicle with the
 candidate optimized GLB and measure FPS, memory, and first-interaction time on
 the actual presentation computer before locking the final model budget.
+
+## Adaptive Quality
+
+**Initial tier rules:**
+
+- `reduced-motion`: always selected when the user requests reduced motion.
+- `lite`: selected when WebGL is unavailable.
+- `balanced`: selected for mobile devices and desktops below the high threshold.
+- `high`: selected for WebGL desktops with at least `8 GB` reported memory and
+  at least `8` logical CPU cores.
+
+**Runtime downgrade trigger:** Evaluate a representative frame window. Downgrade
+`high` when average FPS falls below `45` or more than `15%` of sampled frames
+take over `34 ms`. Downgrade `balanced` when average FPS falls below `28` or
+more than `25%` of frames are slow. Never automatically upgrade, and never
+automatically move below `lite`.
+
+**User control:** Explicit tier choices persist for the current browser session.
+Reduced motion always overrides a stored choice.
+
+**Cleanup evidence:** Repeated switching among all four tiers left exactly one
+narrative representative and one showroom representative in desktop and mobile
+browser automation. WebGL failure activated the 360 fallback, and reduced-motion
+entry selected the linear experience.
