@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { demoContent, type ChapterId } from '../content/demoContent'
 import { ExperienceProvider } from '../experience/ExperienceProvider'
 import { Narrative } from '../narrative/Narrative'
+import { QuoteSection } from '../quote/QuoteSection'
 import { AppHeader } from '../shell/AppHeader'
 import './DemoApp.css'
 
@@ -27,7 +28,6 @@ function ChapterCopy({ id, level = 2 }: { id: ChapterId; level?: 1 | 2 }) {
 }
 
 export function DemoApp() {
-  const quote = chapter('quote')
   const closing = chapter('closing')
 
   return (
@@ -52,12 +52,7 @@ export function DemoApp() {
 
         <section className="demo-section demo-quote" id="quote">
           <ChapterCopy id="quote" />
-          <div className="quote-preview">
-            <p>{demoContent.quote.notice}</p>
-            <a className="button-link button-link--primary" href="mailto:comercial@cootrasec.co">
-              {quote.cta}
-            </a>
-          </div>
+          <QuoteSection />
         </section>
 
         <section className="demo-closing" id="closing">

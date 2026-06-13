@@ -1,0 +1,57 @@
+.quote-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  gap: 20px;
+}
+
+.quote-form,
+.quote-summary {
+  padding: 28px;
+  border: 1px solid rgba(244, 240, 230, 0.14);
+  border-radius: 24px;
+  background: var(--glass);
+}
+
+.quote-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.quote-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--ivory-soft);
+  font-size: 0.82rem;
+}
+
+.quote-form input,
+.quote-form select {
+  width: 100%;
+  border: 1px solid rgba(244, 240, 230, 0.22);
+  border-radius: 12px;
+  padding: 12px;
+  color: var(--ivory);
+  background: rgba(13, 36, 29, 0.8);
+}
+
+.quote-notice,
+.quote-form button {
+  grid-column: 1 / -1;
+}
+
+.field-error {
+  color: #f1b6a6;
+}
+
+.quote-summary h3 {
+  margin: 10px 0 18px;
+  font-size: 2.2rem;
+}
+
+@media (max-width: 800px) {
+  .quote-layout,
+  .quote-form {
+    grid-template-columns: 1fr;
+  }
+}
