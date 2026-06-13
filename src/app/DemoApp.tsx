@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { demoContent, type ChapterId } from '../content/demoContent'
 import { ExperienceProvider } from '../experience/ExperienceProvider'
+import { Narrative } from '../narrative/Narrative'
 import { AppHeader } from '../shell/AppHeader'
 import './DemoApp.css'
 
@@ -26,8 +27,6 @@ function ChapterCopy({ id, level = 2 }: { id: ChapterId; level?: 1 | 2 }) {
 }
 
 export function DemoApp() {
-  const trust = chapter('trust')
-  const hero = chapter('hero')
   const showroom = chapter('showroom')
   const quote = chapter('quote')
   const closing = chapter('closing')
@@ -36,45 +35,7 @@ export function DemoApp() {
     <ExperienceProvider>
       <AppHeader />
       <main className="demo-app" id="main-content">
-        <section className="demo-hero" id="hero">
-          <ChapterCopy id="hero" level={1} />
-          <div className="hero-actions">
-            <a className="button-link button-link--primary" href="#experience">{hero.cta}</a>
-            <a className="button-link" href="#quote">Cotizar servicio</a>
-          </div>
-          <div className="visual-placeholder visual-placeholder--hero" aria-hidden="true">
-            <span>Viaje luminoso</span>
-          </div>
-        </section>
-
-        <section className="demo-section" id="safety">
-          <ChapterCopy id="trust" />
-          <ul className="trust-grid" aria-label={trust.title}>
-            {['Puntualidad', 'Monitoreo', 'Conductores capacitados', 'Planeacion'].map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="demo-section" id="fleet">
-          <ChapterCopy id="fleet" />
-          <div className="fleet-grid">
-            {demoContent.vehicles.map((vehicle) => (
-              <article key={vehicle.id}>
-                <p className="eyebrow">{vehicle.category}</p>
-                <h3>{vehicle.name}</h3>
-                <p>{vehicle.description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="demo-section demo-reveal" id="experience">
-          <ChapterCopy id="reveal" />
-          <div className="visual-placeholder" aria-hidden="true">
-            <span>Sinu tropical idealizado</span>
-          </div>
-        </section>
+        <Narrative />
 
         <section className="demo-section demo-showroom" id="showroom">
           <div>
