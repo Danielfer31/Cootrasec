@@ -1,0 +1,13 @@
+{
+  "narrative": {
+    "hero": { "path": "/demo-assets/narrative/hero.webp", "maxBytes": 700000 },
+    "transformationHigh": { "path": "/demo-assets/narrative/transformation/frame-{frame}.webp", "frames": 48, "maxBytes": 4000000 },
+    "transformationVideo": { "path": "/demo-assets/narrative/transformation.mp4", "maxBytes": 1500000 },
+    "reveal": { "path": "/demo-assets/narrative/reveal.webp", "maxBytes": 900000 },
+    "convoy": { "path": "/demo-assets/narrative/convoy.webp", "maxBytes": 900000 }
+  },
+  "showroom": {
+    "model": { "path": "/demo-assets/showroom/paradiso.glb", "maxBytes": 8000000 },
+    "turntable": { "path": "/demo-assets/turntable/frame-{frame}.webp", "frames": 24, "maxBytes": 1500000 }
+  }
+}
