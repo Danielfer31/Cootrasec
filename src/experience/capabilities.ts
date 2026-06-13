@@ -8,6 +8,12 @@ export interface CapabilitySnapshot {
   mobile: boolean
 }
 
+interface PerformanceSummary {
+  averageFps: number
+  slowFrames: number
+  sampleCount: number
+}
+
 interface NavigatorWithMemory extends Navigator {
   deviceMemory?: number
 }
@@ -18,6 +24,13 @@ export function chooseTier(capabilities: CapabilitySnapshot): ExperienceTier {
   if (capabilities.mobile) return 'balanced'
   if ((capabilities.memoryGb ?? 4) >= 8 && capabilities.cores >= 8) return 'high'
   return 'balanced'
+}
+
+export function shouldDowngrade(tier: ExperienceTier, summary: PerformanceSummary) {
+  if (tier === 'lite' || tier === 'reduced-motion' || summary.sampleCount === 0) return false
+  const slowFrameRatio = summary.slowFrames / summary.sampleCount
+  if (tier === 'high') return summary.averageFps < 45 || slowFrameRatio > 0.15
+  return summary.averageFps < 28 || slowFrameRatio > 0.25
 }
 
 function supportsWebGl(target: Window): boolean {

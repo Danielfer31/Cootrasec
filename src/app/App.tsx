@@ -1,5 +1,7 @@
 import { NarrativeSpike } from '../spikes/narrative/NarrativeSpike'
 import { ShowroomSpike } from '../spikes/showroom/ShowroomSpike'
+import { ExperienceProvider } from '../experience/ExperienceProvider'
+import { AdaptiveSpike } from '../spikes/adaptive/AdaptiveSpike'
 
 type SpikeName = 'narrative' | 'showroom' | 'adaptive'
 
@@ -71,5 +73,8 @@ export default function App() {
   const spike = selectedSpike()
   if (spike === 'narrative') return <NarrativeSpike />
   if (spike === 'showroom') return <ShowroomSpike />
+  if (spike === 'adaptive') {
+    return <ExperienceProvider><AdaptiveSpike /></ExperienceProvider>
+  }
   return spike ? <SpikePlaceholder name={spike} /> : <LaboratoryHome />
 }
