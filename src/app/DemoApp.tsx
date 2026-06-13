@@ -5,7 +5,7 @@ import { Narrative } from '../narrative/Narrative'
 import { AppHeader } from '../shell/AppHeader'
 import './DemoApp.css'
 
-const ShowroomPreview = lazy(() => import('./DemoShowroomPreview'))
+const Showroom = lazy(() => import('../showroom/Showroom'))
 
 function chapter(id: ChapterId) {
   const content = demoContent.chapters.find((item) => item.id === id)
@@ -27,7 +27,6 @@ function ChapterCopy({ id, level = 2 }: { id: ChapterId; level?: 1 | 2 }) {
 }
 
 export function DemoApp() {
-  const showroom = chapter('showroom')
   const quote = chapter('quote')
   const closing = chapter('closing')
 
@@ -40,11 +39,10 @@ export function DemoApp() {
         <section className="demo-section demo-showroom" id="showroom">
           <div>
             <ChapterCopy id="showroom" />
-            <a className="button-link button-link--primary" href="#quote">{showroom.cta}</a>
           </div>
           <div className="showroom-shell">
             <Suspense fallback={<p className="showroom-status">Preparando vista interactiva...</p>}>
-              <ShowroomPreview />
+              <Showroom />
             </Suspense>
             <p className="showroom-status">
               La exploracion interactiva conservara puntos de interes y cotizacion en HTML.
