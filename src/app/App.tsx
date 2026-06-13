@@ -66,5 +66,7 @@ function LaboratoryHome() {
 
 export default function App() {
   const spike = selectedSpike()
+  if (spike === 'narrative') return <NarrativeSpike />
   return spike ? <SpikePlaceholder name={spike} /> : <LaboratoryHome />
 }
+import { NarrativeSpike } from '../spikes/narrative/NarrativeSpike'

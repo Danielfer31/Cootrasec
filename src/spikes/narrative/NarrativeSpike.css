@@ -1,0 +1,102 @@
+.narrative-page {
+  width: 100%;
+  max-width: none;
+  padding-bottom: 0;
+}
+
+.narrative-header {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto 64px;
+}
+
+.narrative-header h1 {
+  font-size: clamp(3rem, 7vw, 6rem);
+}
+
+.mode-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.mode-controls button,
+.media-shell > button {
+  border: 1px solid rgba(244, 240, 230, 0.28);
+  border-radius: 999px;
+  padding: 10px 16px;
+  color: #f4f0e6;
+  background: rgba(244, 240, 230, 0.08);
+  cursor: pointer;
+}
+
+.narrative-stage {
+  min-height: 100vh;
+}
+
+.narrative-stage.is-reduced {
+  min-height: auto;
+}
+
+.media-shell {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #080f0c;
+}
+
+.narrative-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scene-copy {
+  position: absolute;
+  max-width: 620px;
+  transition: opacity 160ms linear;
+}
+
+.scene-copy p {
+  margin: 0;
+  color: #f4f0e6;
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 6vw, 5rem);
+  line-height: 1;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+.scene-copy-primary {
+  top: 12%;
+  left: 7%;
+}
+
+.scene-copy-secondary {
+  right: 7%;
+  bottom: 14%;
+  text-align: right;
+}
+
+.progress-readout {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  display: flex;
+  gap: 12px;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: rgba(16, 42, 34, 0.8);
+  font-size: 0.75rem;
+}
+
+.progress-readout strong {
+  color: #d8a84e;
+}
+
+.scroll-exit {
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  color: rgba(244, 240, 230, 0.5);
+}
