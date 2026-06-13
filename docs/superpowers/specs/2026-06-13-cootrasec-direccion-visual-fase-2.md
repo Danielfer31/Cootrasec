@@ -1,7 +1,7 @@
 # Cootrasec Fase 2: Direccion visual
 
 **Fecha:** 2026-06-13  
-**Estado:** En definicion; arco visual general aprobado  
+**Estado:** Conceptos visuales principales aprobados; sistema visual detallado pendiente
 **Alcance:** Conceptos visuales para escenas principales. No construir la landing completa antes de aprobar esta fase.
 
 ## Objetivo
@@ -54,7 +54,7 @@ La direccion Viaje luminoso prioriza movimiento elegante, reflejos solares y una
 4. **Showroom:** el movimiento se calma dentro del pabellon abierto; paneles translucidos acompanan la exploracion.
 5. **Cierre:** toda la flota avanza en convoy, con composicion amplia y sensacion de destino compartido.
 
-## Direccion por escenas presentada, pendiente de aprobacion
+## Direccion por escenas aprobada
 
 1. **Amanecer y Prado TX-L**  
    Plano frontal bajo y estable. La camioneta emerge suavemente entre reflejos solares; amplio espacio para el mensaje principal.
@@ -70,6 +70,26 @@ La direccion Viaje luminoso prioriza movimiento elegante, reflejos solares y una
 
 5. **Cierre de flota**  
    Prado, Sprinter y Paradiso avanzan en convoy. Camara aerea suave, carretera amplia y manana completamente luminosa.
+
+La direccion detallada por escenas fue aprobada por el usuario el 2026-06-13.
+
+## Conceptos visuales individuales aprobados
+
+Se produjo un primer concepto visual para cada escena:
+
+- `.superpowers/visual-assets/fase-2-scenes/01-amanecer-prado.png`
+- `.superpowers/visual-assets/fase-2-scenes/02-transformacion-flota.png`
+- `.superpowers/visual-assets/fase-2-scenes/03-paradiso-sinu.png`
+- `.superpowers/visual-assets/fase-2-scenes/04-showroom-interfaz.png`
+- `.superpowers/visual-assets/fase-2-scenes/05-convoy-final.png`
+
+El conjunto completo fue aprobado por el usuario el 2026-06-13 como direccion visual para las cinco escenas.
+
+Los conceptos funcionan como referencia de composicion, escala, luz y atmosfera. Durante la produccion:
+
+- La transformacion debe ejecutarse como un unico vehiculo que cambia progresivamente de silueta; la imagen con los tres vehiculos visibles funciona solo como mapa conceptual.
+- Se deben eliminar todos los rasgos de emblemas o marcas generados.
+- Se deben conservar el prestigio sereno, la dinamica controlada y la progresion luminosa aprobados.
 
 ## Comparacion visual realizada
 
@@ -92,10 +112,6 @@ El usuario selecciono **Viaje luminoso** como direccion dominante. El tablero te
 
 ## Proximos pasos
 
-1. Obtener aprobacion o ajustes para la direccion por escenas presentada.
-2. Producir conceptos visuales individuales para las cinco escenas principales.
-3. Comparar y aprobar esos conceptos.
-4. Definir tipografias, composicion, colores finales y reglas de motion.
-5. Crear el inventario definitivo de recursos.
-6. Escribir el documento final de direccion visual y solicitar revision del usuario.
-
+1. Definir tipografias, composicion, colores finales y reglas de motion.
+2. Crear el inventario definitivo de recursos.
+3. Escribir el documento final de direccion visual y solicitar revision del usuario.
