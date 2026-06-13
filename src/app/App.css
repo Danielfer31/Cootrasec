@@ -1,0 +1,123 @@
+:root {
+  color: #f4f0e6;
+  background: #102a22;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 80% 10%, rgba(216, 168, 78, 0.22), transparent 30%),
+    linear-gradient(145deg, #102a22, #181c1b);
+}
+
+a {
+  color: inherit;
+}
+
+main {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 64px 0;
+}
+
+.hero {
+  max-width: 720px;
+  padding: 8vh 0 48px;
+}
+
+.eyebrow {
+  color: #d8a84e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 12px 0 16px;
+  font-family: Georgia, serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+p {
+  color: rgba(244, 240, 230, 0.72);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.spike-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.spike-card,
+.placeholder {
+  border: 1px solid rgba(244, 240, 230, 0.14);
+  border-radius: 20px;
+  background: rgba(244, 240, 230, 0.06);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.16);
+}
+
+.spike-card {
+  min-height: 260px;
+  padding: 28px;
+  text-decoration: none;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.spike-card:hover,
+.spike-card:focus-visible {
+  border-color: #d8a84e;
+  transform: translateY(-4px);
+}
+
+.spike-card span {
+  font-family: Georgia, serif;
+  font-size: 1.65rem;
+}
+
+.spike-card strong {
+  display: block;
+  margin-top: 32px;
+  color: #d8a84e;
+}
+
+.spike-screen {
+  max-width: 900px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 56px;
+  color: #d8a84e;
+}
+
+.placeholder {
+  margin-top: 48px;
+  min-height: 320px;
+  padding: 32px;
+  display: grid;
+  place-items: center;
+  color: rgba(244, 240, 230, 0.58);
+}
+
+@media (max-width: 800px) {
+  .spike-grid {
+    grid-template-columns: 1fr;
+  }
+
+  main {
+    padding-top: 32px;
+  }
+}
