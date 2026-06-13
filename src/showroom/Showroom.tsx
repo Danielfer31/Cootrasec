@@ -8,12 +8,11 @@ import './Showroom.css'
 const BusCanvas = lazy(() => import('./BusCanvas'))
 
 export function Showroom() {
-  const { tier } = useExperience()
+  const { capabilities, tier } = useExperience()
   const [activeHotspot, setActiveHotspot] = useState(showroomHotspots[0])
   const [interior, setInterior] = useState(false)
   const [morningLight, setMorningLight] = useState(true)
-  const webgl = tier !== 'lite'
-  const variant = selectShowroomVariant(tier, webgl)
+  const variant = selectShowroomVariant(tier, capabilities.webgl)
 
   const transferToQuote = () => {
     window.dispatchEvent(new CustomEvent('cootrasec:select-vehicle', {

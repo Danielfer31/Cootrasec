@@ -17,6 +17,7 @@ const storageKey = 'cootrasec-experience-tier'
 const tiers: ExperienceTier[] = ['high', 'balanced', 'lite', 'reduced-motion']
 
 export interface ExperienceContextValue {
+  capabilities: CapabilitySnapshot
   tier: ExperienceTier
   detectedTier: ExperienceTier
   experienceRevision: number
@@ -50,15 +51,7 @@ export function ExperienceProvider({ children, capabilities }: ExperienceProvide
     snapshot.reducedMotion ? 'reduced-motion' : storedTier() ?? detectedTier,
   )
   const [experienceRevision, setExperienceRevision] = useState(0)
-
-  useEffect(() => {
-    if (!snapshot.reducedMotion) return
-    setCurrentTier((current) => {
-      if (current === 'reduced-motion') return current
-      setExperienceRevision((revision) => revision + 1)
-      return 'reduced-motion'
-    })
-  }, [snapshot.reducedMotion])
+  const effectiveTier = snapshot.reducedMotion ? 'reduced-motion' : tier
 
   useEffect(() => {
     if (capabilities) return
@@ -70,10 +63,12 @@ export function ExperienceProvider({ children, capabilities }: ExperienceProvide
 
   const value = useMemo<ExperienceContextValue>(
     () => ({
-      tier,
+      capabilities: snapshot,
+      tier: effectiveTier,
       detectedTier,
       experienceRevision,
       setTier: (nextTier) => {
+        if (snapshot.reducedMotion) return
         sessionStorage.setItem(storageKey, nextTier)
         setCurrentTier((current) => {
           if (current === nextTier) return current
@@ -90,12 +85,14 @@ export function ExperienceProvider({ children, capabilities }: ExperienceProvide
         })
       },
     }),
-    [detectedTier, experienceRevision, tier],
+    [detectedTier, effectiveTier, experienceRevision, snapshot],
   )
 
   return <ExperienceContext.Provider value={value}>{children}</ExperienceContext.Provider>
 }
 
+// The provider and its colocated hook form one public context API.
+// eslint-disable-next-line react-refresh/only-export-components
 export function useExperience() {
   const context = useContext(ExperienceContext)
   if (!context) throw new Error('useExperience must be used within ExperienceProvider')

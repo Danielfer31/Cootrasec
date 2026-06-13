@@ -33,7 +33,7 @@ export function NarrativeSpike() {
 
   useEffect(() => {
     if (mode === 'reduced') {
-      setProgress(1)
+      queueMicrotask(() => setProgress(1))
       return
     }
     const section = sectionRef.current
@@ -52,7 +52,7 @@ export function NarrativeSpike() {
   useEffect(() => {
     if (!mode.startsWith('sequence')) return
     const controller = new AbortController()
-    setLoadProgress(0)
+    queueMicrotask(() => setLoadProgress(0))
     void preloadFrames(
       urls,
       (completed, total) => setLoadProgress(Math.round((completed / total) * 100)),

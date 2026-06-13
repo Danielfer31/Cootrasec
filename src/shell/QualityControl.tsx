@@ -8,15 +8,18 @@ const options: Array<{ label: string; tier: Exclude<ExperienceTier, 'reduced-mot
 ]
 
 export function QualityControl() {
-  const { setTier, tier } = useExperience()
+  const { capabilities, setTier, tier } = useExperience()
+  const reducedMotion = capabilities.reducedMotion || tier === 'reduced-motion'
 
   return (
     <fieldset className="quality-control">
       <legend>Calidad visual</legend>
+      {reducedMotion && <span>Movimiento reducido activo</span>}
       {options.map((option) => (
         <label key={option.tier}>
           <input
             checked={tier === option.tier}
+            disabled={reducedMotion}
             name="visual-quality"
             onChange={() => setTier(option.tier)}
             type="radio"

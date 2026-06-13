@@ -28,4 +28,23 @@ describe('AppHeader', () => {
     }
     expect(screen.getByRole('group', { name: 'Calidad visual' })).toBeVisible()
   })
+
+  it('locks manual quality controls when reduced motion is preferred', () => {
+    render(
+      <ExperienceProvider
+        capabilities={{
+          reducedMotion: true,
+          webgl: true,
+          memoryGb: 8,
+          cores: 8,
+          mobile: false,
+        }}
+      >
+        <AppHeader />
+      </ExperienceProvider>,
+    )
+
+    expect(screen.getByText('Movimiento reducido activo')).toBeVisible()
+    expect(screen.getByRole('radio', { name: 'Alta' })).toBeDisabled()
+  })
 })
