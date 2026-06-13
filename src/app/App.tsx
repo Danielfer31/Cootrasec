@@ -1,3 +1,6 @@
+import { NarrativeSpike } from '../spikes/narrative/NarrativeSpike'
+import { ShowroomSpike } from '../spikes/showroom/ShowroomSpike'
+
 type SpikeName = 'narrative' | 'showroom' | 'adaptive'
 
 const spikes: Record<SpikeName, { label: string; description: string }> = {
@@ -67,6 +70,6 @@ function LaboratoryHome() {
 export default function App() {
   const spike = selectedSpike()
   if (spike === 'narrative') return <NarrativeSpike />
+  if (spike === 'showroom') return <ShowroomSpike />
   return spike ? <SpikePlaceholder name={spike} /> : <LaboratoryHome />
 }
-import { NarrativeSpike } from '../spikes/narrative/NarrativeSpike'
