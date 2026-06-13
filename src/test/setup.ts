@@ -13,3 +13,15 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: () => false,
   }),
 })
+
+Object.defineProperty(window, 'scrollTo', {
+  configurable: true,
+  value: () => undefined,
+})
+
+Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
+  configurable: true,
+  value: () => ({
+    drawImage: () => undefined,
+  }),
+})
