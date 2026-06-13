@@ -1,7 +1,7 @@
 # Cootrasec Fase 2: Direccion visual
 
 **Fecha:** 2026-06-13  
-**Estado:** Conceptos visuales principales aprobados; sistema visual detallado pendiente
+**Estado:** Direccion visual completa; pendiente de revision final
 **Alcance:** Conceptos visuales para escenas principales. No construir la landing completa antes de aprobar esta fase.
 
 ## Objetivo
@@ -91,6 +91,103 @@ Los conceptos funcionan como referencia de composicion, escala, luz y atmosfera.
 - Se deben eliminar todos los rasgos de emblemas o marcas generados.
 - Se deben conservar el prestigio sereno, la dinamica controlada y la progresion luminosa aprobados.
 
+## Sistema visual detallado aprobado
+
+### Tipografia
+
+La personalidad tipografica sera **corporativa moderna**:
+
+- Sistema exclusivamente sans-serif.
+- Titulares precisos, limpios y seguros, sin gestos editoriales ornamentales.
+- Textos funcionales de alta legibilidad.
+- Diferenciacion mediante escala, peso, espaciado y contraste, no mediante mezcla de familias expresivas.
+- Las cifras y datos tecnicos deben sentirse claros y confiables.
+
+### Composicion editorial
+
+La jerarquia sera **informativa equilibrada**:
+
+- Los vehiculos permanecen como protagonistas de cada escena.
+- Titulares y mensajes principales conservan aire suficiente y lectura inmediata.
+- Datos utiles y especificaciones selectivas permanecen visibles sin competir con la flota.
+- La interfaz debe revelar informacion por capas y evitar paneles densos.
+- El paisaje aporta contexto y atmosfera sin desplazar el contenido principal.
+
+### Paleta y materiales
+
+La direccion cromatica sera **marfil y verde tropical**:
+
+- El marfil perlado identifica visualmente la flota.
+- Los verdes profundos y naturales vinculan la experiencia con el paisaje del Sinu.
+- Los neutros claros sostienen el pabellon y las superficies informativas.
+- El grafito se reserva para contraste, estructura y controles.
+- Los reflejos solares calidos articulan la progresion del amanecer a la manana luminosa.
+- Evitar verdes saturados artificiales, acabados neon y contrastes estridentes.
+
+Materiales principales:
+
+- Carrocerias marfil perlado.
+- Piedra clara de acabado mate.
+- Estructuras oscuras de metal o grafito.
+- Vidrio translucido de baja opacidad.
+- Agua y vegetacion tropical como superficies vivas de reflejo.
+
+### Motion
+
+El ritmo sera **fluido continuo**:
+
+- Las escenas se enlazan mediante desplazamientos y transiciones suaves.
+- Las camaras mantienen estabilidad, precision y aceleraciones contenidas.
+- La interfaz aparece y desaparece como una extension del movimiento, no como ventanas abruptas.
+- La transformacion usa reflejos y bandas solares para ocultar y revelar progresivamente una unica silueta.
+- Evitar cortes bruscos, rebotes, movimientos elasticos, velocidad agresiva y efectos invasivos.
+- Cuando el contenido necesite lectura, el movimiento desacelera sin detener por completo la continuidad.
+
+### Estrategia de produccion
+
+La produccion sera **hibrida**:
+
+- Modelos 3D para los vehiculos, transformaciones, continuidad de camara y reflejos controlados.
+- Paisajes fotograficos o placas de video para aportar textura y realismo al Sinu idealizado.
+- Composicion y correccion de color para integrar vehiculos, arquitectura, luz y paisaje.
+- Elementos de interfaz producidos como capas digitales independientes.
+- El pabellon puede combinar arquitectura 3D con fondos fotograficos segun las necesidades de camara.
+
+Esta estrategia equilibra realismo publicitario, control de movimiento y viabilidad de produccion.
+
+## Inventario definitivo de recursos
+
+### Vehiculos 3D
+
+- Toyota Land Cruiser Prado TX-L 2026, generacion J250.
+- Mercedes-Benz Sprinter ejecutiva de pasajeros.
+- Marcopolo Paradiso G8 1800 DD.
+- Material marfil perlado comun para los tres vehiculos.
+- Versiones sin emblemas, logotipos ni placas legibles.
+
+### Entornos
+
+- Carretera tropical para amanecer y transformacion.
+- Paisaje amplio del Sinu idealizado junto al rio.
+- Carretera panoramica para el convoy final.
+- Pabellon abierto de piedra clara y estructura oscura.
+- Placas fotograficas o de video de cielo, vegetacion, agua y reflejos.
+
+### Interfaz
+
+- Sistema tipografico sans-serif corporativo moderno.
+- Titulares, textos funcionales, cifras y etiquetas tecnicas.
+- Tarjetas translucidas, indicadores y controles discretos.
+- Iconografia lineal sobria.
+
+### Motion y posproduccion
+
+- Trayectorias de camara para las cinco escenas.
+- Bandas de luz y reflejos solares para la transformacion.
+- Transiciones continuas entre escenas.
+- Integracion, correccion de color y tratamiento de reflejos.
+- Versiones adaptadas para escritorio y dispositivos moviles.
+
 ## Comparacion visual realizada
 
 Se genero un tablero con tres rutas:
@@ -112,6 +209,5 @@ El usuario selecciono **Viaje luminoso** como direccion dominante. El tablero te
 
 ## Proximos pasos
 
-1. Definir tipografias, composicion, colores finales y reglas de motion.
-2. Crear el inventario definitivo de recursos.
-3. Escribir el documento final de direccion visual y solicitar revision del usuario.
+1. Obtener la revision final del usuario sobre este documento.
+2. Escribir el plan de implementacion de la experiencia.
