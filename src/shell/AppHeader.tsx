@@ -1,4 +1,5 @@
 import { DemoLogo } from '../brand/DemoLogo'
+import { demoBrand } from '../brand/demoBrand'
 import { QualityControl } from './QualityControl'
 import './Shell.css'
 
@@ -14,7 +15,11 @@ export function AppHeader() {
     <>
       <a className="skip-link" href="#main-content">Saltar al contenido</a>
       <header className="app-header">
-        <a className="app-brand" href={import.meta.env.BASE_URL} aria-label="Cootrasec, inicio">
+        <a
+          aria-label={`${demoBrand.name} ${demoBrand.descriptor}, inicio`}
+          className="app-brand"
+          href={import.meta.env.BASE_URL}
+        >
           <DemoLogo />
         </a>
         <nav aria-label="Navegacion principal">

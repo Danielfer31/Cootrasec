@@ -14,10 +14,16 @@ describe('DemoLogo', () => {
   })
 
   it('renders an accessible demo brand', () => {
-    render(<DemoLogo />)
+    const { container } = render(<DemoLogo />)
 
     expect(screen.getByRole('img', { name: 'Cootrasec Demo' })).toBeVisible()
     expect(screen.getByText('Cootrasec')).toBeVisible()
     expect(screen.getByText('Experiencia demo')).toBeVisible()
+    expect(screen.getByText('Cootrasec').parentElement).toHaveStyle({
+      display: 'inline-grid',
+      gap: '2px',
+    })
+    expect(container.querySelector('circle')).toHaveAttribute('fill', '#d8a84e')
+    expect(container.querySelector('path')).toHaveAttribute('stroke', '#0d241d')
   })
 })

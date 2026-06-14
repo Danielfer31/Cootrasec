@@ -23,10 +23,9 @@ describe('AppHeader', () => {
       'href',
       '#main-content',
     )
-    expect(screen.getByRole('link', { name: 'Cootrasec, inicio' })).toHaveAttribute(
-      'href',
-      import.meta.env.BASE_URL,
-    )
+    expect(
+      screen.getByRole('link', { name: 'Cootrasec Experiencia demo, inicio' }),
+    ).toHaveAttribute('href', import.meta.env.BASE_URL)
     expect(screen.getByRole('img', { name: 'Cootrasec Demo' })).toBeVisible()
     for (const label of ['Flota', 'Experiencia', 'Seguridad', 'Cotizar']) {
       expect(screen.getByRole('link', { name: label })).toBeVisible()
