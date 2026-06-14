@@ -9,6 +9,10 @@ Los recursos finales de esta demo fueron producidos internamente a partir de los
 | Video de transformacion | Derivado de la secuencia | Propio para la demo | Verificado | 682,227 B | 1920x1080, 4 s, sin audio | Aprobado |
 | Revelacion junto al Sinu | Concepto aprobado 03 | Propio para la demo | Verificado | 177,882 B | 1920x1080 | Aprobado |
 | Convoy final | Concepto aprobado 05 | Propio para la demo | Verificado | 123,246 B | 1920x1080 | Aprobado |
+| Fotografia ejecutiva | Recurso propio generado para la demo | Generacion de imagen integrada + conversion web; no oficial ni de terceros | Verificado | 183,192 B | 1920x1080 | Aprobado |
+| Fotografia corporativa | Recurso propio generado para la demo | Generacion de imagen integrada + conversion web; no oficial ni de terceros | Verificado | 181,472 B | 1920x1080 | Aprobado |
+| Fotografia de turismo | Recurso propio generado para la demo | Generacion de imagen integrada + conversion web; no oficial ni de terceros | Verificado | 195,822 B | 1920x1080 | Aprobado |
+| Fotografia de convoy | Recurso propio generado para la demo | Generacion de imagen integrada + conversion web; no oficial ni de terceros | Verificado | 210,078 B | 1920x1080 | Aprobado |
 | Bus generico GLB | Geometria procedural propia | Propio para la demo | Verificado | 26,460 B | N/A | Aprobado |
 | Secuencia 360 del bus | Recurso procedural validado en spike | Propio para la demo | Verificado | 903,254 B | 24 cuadros | Aprobado |
 | Video de respaldo | Derivado de hero, reveal y convoy | Propio para la demo | Verificado | 3,869,020 B | 1920x1080, 120 s, sin audio | Aprobado |
@@ -19,6 +23,7 @@ Los recursos finales de esta demo fueron producidos internamente a partir de los
 - Todos los recursos respetan los presupuestos del manifiesto.
 - No se incorporaron archivos externos con licencias desconocidas.
 - No se incorporaron logotipos, placas legibles ni identidad inventada.
+- Las fotografias se crearon con generacion de imagen integrada y conversion web; no son recursos oficiales ni de terceros.
 - La transformacion utiliza fundidos y una banda solar, no mecanismos.
 
 ## Limitaciones De Demo

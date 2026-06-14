@@ -29,4 +29,13 @@ describe('sceneManifest', () => {
 
     expect(sceneManifest.at(-1)?.progress.end).toBe(1)
   })
+
+  it('maps the narrative scenes to the demo photography', () => {
+    expect(sceneManifest.map((scene) => scene.asset)).toEqual([
+      '/demo-assets/photography/executive.webp',
+      '/demo-assets/photography/corporate.webp',
+      '/demo-assets/photography/convoy.webp',
+      '/demo-assets/photography/tourism.webp',
+    ])
+  })
 })

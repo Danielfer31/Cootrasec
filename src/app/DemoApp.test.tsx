@@ -22,6 +22,13 @@ describe('App routing', () => {
     expect(screen.getByRole('main')).toHaveAttribute('id', 'main-content')
   })
 
+  it('renders the convoy photography in the closing chapter', () => {
+    visit()
+
+    expect(screen.getByRole('img', { name: 'Convoy de vehículos marfil en una carretera tropical' }))
+      .toHaveAttribute('src', '/demo-assets/photography/convoy.webp')
+  })
+
   it.each([
     ['narrative', 'Spike A: narrativa'],
     ['showroom', 'Spike B: showroom'],

@@ -6,6 +6,12 @@
     "reveal": { "path": "/demo-assets/narrative/reveal.webp", "maxBytes": 900000 },
     "convoy": { "path": "/demo-assets/narrative/convoy.webp", "maxBytes": 900000 }
   },
+  "photography": {
+    "executive": { "path": "/demo-assets/photography/executive.webp", "maxBytes": 900000 },
+    "corporate": { "path": "/demo-assets/photography/corporate.webp", "maxBytes": 900000 },
+    "tourism": { "path": "/demo-assets/photography/tourism.webp", "maxBytes": 900000 },
+    "convoy": { "path": "/demo-assets/photography/convoy.webp", "maxBytes": 900000 }
+  },
   "showroom": {
     "model": { "path": "/demo-assets/showroom/paradiso.glb", "maxBytes": 8000000 },
     "turntable": { "path": "/demo-assets/turntable/frame-{frame}.webp", "frames": 24, "maxBytes": 1500000 }

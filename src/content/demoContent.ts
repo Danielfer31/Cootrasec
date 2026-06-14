@@ -1,3 +1,4 @@
+import { publicAsset } from '../assets/publicAsset'
 import { demoBrand } from '../brand/demoBrand'
 
 export type ChapterId =
@@ -30,6 +31,8 @@ export interface Vehicle {
   name: string
   category: string
   description: string
+  image: string
+  imageAlt: string
   features: string[]
   hotspots: Hotspot[]
 }
@@ -89,6 +92,8 @@ export const demoContent = {
       name: 'Prado ejecutiva',
       category: 'Movilidad ejecutiva',
       description: 'Una alternativa para traslados directivos y recorridos de grupos pequeños.',
+      image: publicAsset('/demo-assets/photography/executive.webp'),
+      imageAlt: 'Vehículo ejecutivo marfil en una carretera tropical',
       features: ['Comodidad ejecutiva', 'Climatizacion', 'Equipaje protegido'],
       hotspots: [],
     },
@@ -97,6 +102,8 @@ export const demoContent = {
       name: 'Sprinter corporativa',
       category: 'Equipos y eventos',
       description: 'Espacio flexible para equipos empresariales, invitados y operacion coordinada.',
+      image: publicAsset('/demo-assets/photography/corporate.webp'),
+      imageAlt: 'Vehículo corporativo marfil preparado para un traslado empresarial',
       features: ['Conectividad', 'Climatizacion', 'Espacio de equipaje'],
       hotspots: [],
     },
@@ -105,6 +112,8 @@ export const demoContent = {
       name: 'Paradiso premium',
       category: 'Grandes grupos',
       description: 'El protagonista para recorridos colectivos de gran capacidad.',
+      image: publicAsset('/demo-assets/photography/tourism.webp'),
+      imageAlt: 'Bus de turismo marfil recorriendo un paisaje tropical',
       features: ['Capacidad', 'Comodidad', 'Entretenimiento', 'Seguridad'],
       hotspots: [
         { id: 'capacity', label: 'Capacidad', description: 'Configuracion para grandes grupos.' },

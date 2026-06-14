@@ -1,4 +1,5 @@
 import { Component, lazy, Suspense, type ErrorInfo, type ReactNode } from 'react'
+import { publicAsset } from '../assets/publicAsset'
 import { demoContent, type ChapterId } from '../content/demoContent'
 import { ExperienceProvider } from '../experience/ExperienceProvider'
 import { PerformanceMonitor } from '../experience/PerformanceMonitor'
@@ -84,9 +85,9 @@ export function DemoApp() {
         <section className="demo-closing" id="closing">
           <ChapterCopy id="closing" />
           <img
-            alt="Flota conceptual avanzando en convoy"
+            alt="Convoy de vehículos marfil en una carretera tropical"
             className="closing-image"
-            src="/demo-assets/narrative/convoy.webp"
+            src={publicAsset('/demo-assets/photography/convoy.webp')}
           />
           <a className="button-link button-link--primary" href="#quote">{closing.cta}</a>
         </section>

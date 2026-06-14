@@ -33,4 +33,21 @@ describe('demoContent', () => {
 
     expect(vehicleCopy).not.toMatch(/conceptual/i)
   })
+
+  it('maps each vehicle to accurate demo photography', () => {
+    expect(demoContent.vehicles.map(({ image, imageAlt }) => ({ image, imageAlt }))).toEqual([
+      {
+        image: '/demo-assets/photography/executive.webp',
+        imageAlt: 'Vehículo ejecutivo marfil en una carretera tropical',
+      },
+      {
+        image: '/demo-assets/photography/corporate.webp',
+        imageAlt: 'Vehículo corporativo marfil preparado para un traslado empresarial',
+      },
+      {
+        image: '/demo-assets/photography/tourism.webp',
+        imageAlt: 'Bus de turismo marfil recorriendo un paisaje tropical',
+      },
+    ])
+  })
 })

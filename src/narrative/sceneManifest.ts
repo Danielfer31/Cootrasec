@@ -1,3 +1,4 @@
+import { publicAsset } from '../assets/publicAsset'
 import type { ChapterId } from '../content/demoContent'
 
 export interface NarrativeScene {
@@ -14,29 +15,29 @@ export interface NarrativeScene {
 export const sceneManifest: NarrativeScene[] = [
   {
     id: 'hero',
-    asset: '/demo-assets/narrative/hero.webp',
-    alt: 'Vehiculo ejecutivo recorriendo una carretera tropical al amanecer',
+    asset: publicAsset('/demo-assets/photography/executive.webp'),
+    alt: 'Vehículo ejecutivo marfil recorriendo una carretera tropical',
     anchor: '#hero',
     progress: { start: 0, end: 0.25 },
   },
   {
     id: 'trust',
-    asset: '/demo-assets/narrative/transformation/frame-012.webp',
-    alt: 'Reflejos solares acompanando un recorrido empresarial seguro',
+    asset: publicAsset('/demo-assets/photography/corporate.webp'),
+    alt: 'Vehículo corporativo marfil preparado para un traslado empresarial',
     anchor: '#trust',
     progress: { start: 0.25, end: 0.5 },
   },
   {
     id: 'fleet',
-    asset: '/demo-assets/narrative/transformation/frame-030.webp',
-    alt: 'Transformacion luminosa de la flota ejecutiva',
+    asset: publicAsset('/demo-assets/photography/convoy.webp'),
+    alt: 'Convoy de vehículos marfil recorriendo una carretera tropical',
     anchor: '#fleet',
     progress: { start: 0.5, end: 0.75 },
   },
   {
     id: 'reveal',
-    asset: '/demo-assets/narrative/reveal.webp',
-    alt: 'Bus premium revelado junto a un paisaje tropical luminoso',
+    asset: publicAsset('/demo-assets/photography/tourism.webp'),
+    alt: 'Bus de turismo marfil recorriendo un paisaje tropical',
     anchor: '#reveal',
     progress: { start: 0.75, end: 1 },
   },
