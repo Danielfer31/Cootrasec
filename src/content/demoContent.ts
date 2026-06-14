@@ -1,3 +1,5 @@
+import { demoBrand } from '../brand/demoBrand'
+
 export type ChapterId =
   | 'hero'
   | 'trust'
@@ -45,7 +47,7 @@ export const demoContent = {
       id: 'trust',
       eyebrow: 'Confianza en movimiento',
       title: 'Planeacion, puntualidad y seguridad en cada recorrido.',
-      body: 'Conductores capacitados y monitoreo conceptual acompañan una operacion diseñada para empresas.',
+      body: 'Conductores capacitados y monitoreo continuo acompañan una operacion diseñada para empresas.',
     },
     {
       id: 'fleet',
@@ -63,12 +65,12 @@ export const demoContent = {
       id: 'showroom',
       eyebrow: 'Exploracion interactiva',
       title: 'Conozca el bus protagonista.',
-      body: 'Explore caracteristicas conceptuales de comodidad, capacidad y seguridad.',
+      body: 'Explore caracteristicas destacadas de comodidad, capacidad y seguridad.',
       cta: 'Cotizar este bus',
     },
     {
       id: 'quote',
-      eyebrow: 'Cotizacion conceptual',
+      eyebrow: 'Cotizacion demo',
       title: 'Preparemos el proximo recorrido.',
       body: 'Comparta los datos esenciales y un asesor preparara una propuesta para su empresa.',
       cta: 'Solicitar propuesta',
@@ -86,7 +88,7 @@ export const demoContent = {
       id: 'prado',
       name: 'Prado ejecutiva',
       category: 'Movilidad ejecutiva',
-      description: 'Una alternativa conceptual para traslados directivos y recorridos de grupos pequeños.',
+      description: 'Una alternativa para traslados directivos y recorridos de grupos pequeños.',
       features: ['Comodidad ejecutiva', 'Climatizacion', 'Equipaje protegido'],
       hotspots: [],
     },
@@ -102,20 +104,20 @@ export const demoContent = {
       id: 'paradiso',
       name: 'Paradiso premium',
       category: 'Grandes grupos',
-      description: 'El protagonista conceptual para recorridos colectivos de gran capacidad.',
+      description: 'El protagonista para recorridos colectivos de gran capacidad.',
       features: ['Capacidad', 'Comodidad', 'Entretenimiento', 'Seguridad'],
       hotspots: [
-        { id: 'capacity', label: 'Capacidad', description: 'Configuracion conceptual para grandes grupos.' },
+        { id: 'capacity', label: 'Capacidad', description: 'Configuracion para grandes grupos.' },
         { id: 'comfort', label: 'Comodidad', description: 'Cabina diseñada para un recorrido sereno.' },
         { id: 'climate', label: 'Climatizacion', description: 'Ambiente regulado durante todo el trayecto.' },
         { id: 'luggage', label: 'Equipaje', description: 'Espacio amplio y organizado para equipaje.' },
-        { id: 'entertainment', label: 'Entretenimiento', description: 'Opciones conceptuales para viajes largos.' },
+        { id: 'entertainment', label: 'Entretenimiento', description: 'Opciones para viajes largos.' },
         { id: 'safety', label: 'Seguridad', description: 'Caracteristicas orientadas a un viaje confiable.' },
       ],
     },
   ] satisfies Vehicle[],
   quote: {
-    notice: 'Demostracion conceptual. No muestra precios ni disponibilidad real.',
+    notice: demoBrand.notice,
     cta: 'Solicitar propuesta',
   },
 } as const

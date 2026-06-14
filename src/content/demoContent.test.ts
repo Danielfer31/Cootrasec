@@ -19,8 +19,18 @@ describe('demoContent', () => {
     ])
   })
 
-  it('marks the quote experience as conceptual', () => {
-    expect(demoContent.quote.notice).toMatch(/demostraci[oó]n conceptual/i)
+  it('discloses the demo without describing vehicle content as conceptual', () => {
+    expect(demoContent.quote.notice).toMatch(/demo/i)
     expect(demoContent.quote.cta).toBe('Solicitar propuesta')
+
+    const vehicleCopy = demoContent.vehicles
+      .flatMap((vehicle) => [
+        vehicle.description,
+        ...vehicle.features,
+        ...vehicle.hotspots.map((hotspot) => hotspot.description),
+      ])
+      .join(' ')
+
+    expect(vehicleCopy).not.toMatch(/conceptual/i)
   })
 })
