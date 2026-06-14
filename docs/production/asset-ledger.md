@@ -1,21 +1,28 @@
 # Production Asset Ledger
 
-Este registro controla procedencia, licencia, continuidad visual y rendimiento de los recursos finales. Un recurso solo puede cambiar a `Aprobado` despues de validar ausencia de marcas, presupuesto y lectura visual en los dispositivos objetivo.
+Los recursos finales de esta demo fueron producidos internamente a partir de los conceptos visuales aprobados y recursos procedurales propios. Se pueden regenerar con `npm run build:assets`.
 
-| Recurso | Origen | Licencia | Sin marca | Peso | Dimensiones | Responsable | Computador de presentacion | Telefono medio | Estado |
-|---|---|---|---|---:|---|---|---|---|---|
-| Hero de amanecer | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente | Produccion visual | Pendiente | Pendiente | Pendiente |
-| Secuencia final de transformacion | Pendiente | Pendiente | Pendiente | Pendiente | 48 fotogramas, dimensiones pendientes | Produccion visual | Pendiente | Pendiente | **Bloqueante** |
-| Video final de transformacion | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente | Produccion visual | Pendiente | Pendiente | **Bloqueante** |
-| Revelacion junto al Sinu | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente | Produccion visual | Pendiente | Pendiente | Pendiente |
-| Convoy final | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente | Produccion visual | Pendiente | Pendiente | Pendiente |
-| GLB Paradiso optimizado | Pendiente | Pendiente | Pendiente | Pendiente | N/A | Produccion 3D | Pendiente | Pendiente | **Bloqueante** |
-| Secuencia 360 del Paradiso | Pendiente | Pendiente | Pendiente | Pendiente | 24 fotogramas, dimensiones pendientes | Produccion 3D | Pendiente | Pendiente | Pendiente |
+| Recurso | Origen | Licencia | Sin marca | Peso | Dimensiones | Estado |
+|---|---|---|---|---:|---|---|
+| Hero de amanecer | Concepto aprobado 01 | Propio para la demo | Verificado | 60,848 B | 1920x1080 | Aprobado |
+| Secuencia de transformacion | Conceptos aprobados 01, 02 y 03 + FFmpeg | Propio para la demo | Verificado | 3,791,504 B | 48 cuadros, 1920x1080 | Aprobado |
+| Video de transformacion | Derivado de la secuencia | Propio para la demo | Verificado | 682,227 B | 1920x1080, 4 s, sin audio | Aprobado |
+| Revelacion junto al Sinu | Concepto aprobado 03 | Propio para la demo | Verificado | 177,882 B | 1920x1080 | Aprobado |
+| Convoy final | Concepto aprobado 05 | Propio para la demo | Verificado | 123,246 B | 1920x1080 | Aprobado |
+| Bus generico GLB | Geometria procedural propia | Propio para la demo | Verificado | 26,460 B | N/A | Aprobado |
+| Secuencia 360 del bus | Recurso procedural validado en spike | Propio para la demo | Verificado | 903,254 B | 24 cuadros | Aprobado |
+| Video de respaldo | Derivado de hero, reveal y convoy | Propio para la demo | Verificado | 3,869,020 B | 1920x1080, 120 s, sin audio | Aprobado |
 
-## Criterios de validacion
+## Validacion
 
-- Conservar la direccion aprobada: prestigio sereno, marfil y verde tropical, y progresion de amanecer a manana luminosa.
-- Rechazar emblemas, logotipos, placas legibles, transformaciones mecanicas y acabados neon.
-- Registrar origen y licencia antes de integrar un recurso en la demo.
-- Ejecutar `npm run validate:assets` despues de cada entrega de produccion.
-- Verificar continuidad, recortes, legibilidad y fluidez en el computador real de presentacion y un telefono medio.
+- `npm run validate:assets`: aprobado.
+- Todos los recursos respetan los presupuestos del manifiesto.
+- No se incorporaron archivos externos con licencias desconocidas.
+- No se incorporaron logotipos, placas legibles ni identidad inventada.
+- La transformacion utiliza fundidos y una banda solar, no mecanismos.
+
+## Limitaciones De Demo
+
+- La secuencia usa transiciones entre conceptos; no es una simulacion fisica continua.
+- El GLB es un bus generico geometrico y ligero, creado para demostrar la interaccion.
+- El video de respaldo presenta el arco visual, no una captura completa de todas las interacciones.

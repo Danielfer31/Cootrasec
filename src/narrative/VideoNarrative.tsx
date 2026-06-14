@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { useExperience } from '../experience/ExperienceProvider'
 import { NarrativeAnchors, NarrativeCopy, NarrativeProgress } from './HighNarrative'
 
 export function VideoNarrative() {
-  const { tier } = useExperience()
   const rootRef = useRef<HTMLElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const frameRef = useRef<number | null>(null)
@@ -51,7 +49,7 @@ export function VideoNarrative() {
             playsInline
             preload="metadata"
             ref={videoRef}
-            src={`/spike-assets/narrative/${tier === 'lite' ? 'lite' : 'desktop'}/transformation.mp4`}
+            src="/demo-assets/narrative/transformation.mp4"
           />
         )}
         <NarrativeCopy />

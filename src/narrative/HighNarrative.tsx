@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { demoContent } from '../content/demoContent'
-import { frameUrl, preloadFrames, progressToFrame } from '../spikes/narrative/imageSequence'
+import { preloadFrames, progressToFrame } from '../spikes/narrative/imageSequence'
 import { sceneManifest } from './sceneManifest'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -13,7 +13,10 @@ export function HighNarrative() {
   const rootRef = useRef<HTMLElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const urls = useMemo(
-    () => Array.from({ length: frameCount }, (_, index) => frameUrl('desktop', index)),
+    () => Array.from(
+      { length: frameCount },
+      (_, index) => `/demo-assets/narrative/transformation/frame-${String(index + 1).padStart(3, '0')}.webp`,
+    ),
     [],
   )
 

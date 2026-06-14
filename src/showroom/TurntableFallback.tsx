@@ -3,7 +3,7 @@ import { useEffect, useState, type KeyboardEvent, type PointerEvent } from 'reac
 const frameCount = 24
 
 function frameUrl(index: number) {
-  return `/spike-assets/turntable/frame-${String(index + 1).padStart(3, '0')}.webp`
+  return `/demo-assets/turntable/frame-${String(index + 1).padStart(3, '0')}.webp`
 }
 
 export function TurntableFallback() {

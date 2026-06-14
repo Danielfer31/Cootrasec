@@ -83,6 +83,11 @@ export function DemoApp() {
 
         <section className="demo-closing" id="closing">
           <ChapterCopy id="closing" />
+          <img
+            alt="Flota conceptual avanzando en convoy"
+            className="closing-image"
+            src="/demo-assets/narrative/convoy.webp"
+          />
           <a className="button-link button-link--primary" href="#quote">{closing.cta}</a>
         </section>
       </main>

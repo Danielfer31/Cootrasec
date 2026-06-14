@@ -1,4 +1,4 @@
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, useGLTF } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 
 interface BusCanvasProps {
@@ -7,32 +7,15 @@ interface BusCanvasProps {
 }
 
 function BusModel({ interior }: { interior: boolean }) {
+  const { scene } = useGLTF('/demo-assets/showroom/paradiso.glb')
   return (
     <group rotation={[0, interior ? -1.3 : -0.25, 0]}>
-      <mesh castShadow position={[0, 0.7, 0]}>
-        <boxGeometry args={[4.8, 1.55, 1.65]} />
-        <meshStandardMaterial
-          color={interior ? '#d8cdb8' : '#f4f0e6'}
-          metalness={0.35}
-          roughness={0.3}
-          wireframe={interior}
-        />
-      </mesh>
-      <mesh position={[0.35, 1.25, 0.84]}>
-        <boxGeometry args={[3.35, 0.55, 0.025]} />
-        <meshStandardMaterial color="#15382d" metalness={0.7} roughness={0.18} />
-      </mesh>
-      {[-1.55, 1.55].map((x) =>
-        [-0.88, 0.88].map((z) => (
-          <mesh key={`${x}-${z}`} position={[x, 0, z]} rotation={[Math.PI / 2, 0, 0]}>
-            <cylinderGeometry args={[0.46, 0.46, 0.24, 28]} />
-            <meshStandardMaterial color="#181c1b" roughness={0.7} />
-          </mesh>
-        )),
-      )}
+      <primitive object={scene} />
     </group>
   )
 }
+
+useGLTF.preload('/demo-assets/showroom/paradiso.glb')
 
 export default function BusCanvas({ interior, morningLight }: BusCanvasProps) {
   return (

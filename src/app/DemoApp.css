@@ -171,6 +171,12 @@
   justify-items: center;
 }
 
+.closing-image {
+  width: min(100%, 980px);
+  margin: 36px 0;
+  border-radius: 32px;
+}
+
 @media (max-width: 900px) {
   .visual-placeholder--hero {
     inset: 35% -60% 4% 25%;
