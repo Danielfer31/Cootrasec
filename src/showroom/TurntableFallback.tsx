@@ -1,21 +1,24 @@
 import { useEffect, useState, type KeyboardEvent, type PointerEvent } from 'react'
+import type { VehicleId } from '../content/demoContent'
+import { vehicleAssets } from './vehicleAssets'
 
 const frameCount = 24
 
-function frameUrl(index: number) {
-  return `/demo-assets/turntable/frame-${String(index + 1).padStart(3, '0')}.webp`
+function frameUrl(vehicleId: VehicleId, index: number) {
+  return vehicleAssets[vehicleId].turntable.replace('{frame}', String(index + 1).padStart(3, '0'))
 }
 
-export function TurntableFallback() {
+export function TurntableFallback({ vehicleId }: { vehicleId: VehicleId }) {
   const [frame, setFrame] = useState(0)
   const [dragStart, setDragStart] = useState<number | null>(null)
+  const vehicle = vehicleAssets[vehicleId]
 
   useEffect(() => {
     ;[frame, (frame + 1) % frameCount, (frame + frameCount - 1) % frameCount].forEach((index) => {
       const image = new Image()
-      image.src = frameUrl(index)
+      image.src = frameUrl(vehicleId, index)
     })
-  }, [frame])
+  }, [frame, vehicleId])
 
   const move = (delta: number) => {
     setFrame((current) => (current + delta + frameCount) % frameCount)
@@ -45,7 +48,7 @@ export function TurntableFallback() {
       role="application"
       tabIndex={0}
     >
-      <img alt="Bus premium en vista 360" draggable={false} src={frameUrl(frame)} />
+      <img alt={`${vehicle.label} en vista 360`} draggable={false} src={frameUrl(vehicleId, frame)} />
       <span>Arrastra o usa las flechas · cuadro {frame + 1}/{frameCount}</span>
     </div>
   )

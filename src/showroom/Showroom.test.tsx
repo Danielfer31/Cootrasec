@@ -50,9 +50,13 @@ describe('showroom contract', () => {
     expect(screen.getByRole('button', { name: 'Seguridad' })).toBeVisible()
     expect(screen.getByRole('button', { name: 'Interior conceptual' })).toBeVisible()
     expect(screen.getByRole('button', { name: 'Luz de manana' })).toBeVisible()
+    expect(screen.getByRole('group', { name: 'Seleccionar vehiculo' })).toBeVisible()
+    expect(screen.getByRole('button', { name: 'Prado ejecutivo' })).toBeVisible()
+    expect(screen.getByRole('button', { name: 'Sprinter corporativa' })).toBeVisible()
+    expect(screen.getByRole('button', { name: 'Paradiso turismo' })).toHaveAttribute('aria-pressed', 'true')
   })
 
-  it('opens a hotspot and transfers the bus to the quote flow', () => {
+  it('selects Sprinter in the fallback and transfers it to the quote flow', () => {
     const selectVehicle = vi.fn()
     window.addEventListener('cootrasec:select-vehicle', selectVehicle)
     render(
@@ -61,12 +65,18 @@ describe('showroom contract', () => {
       </ExperienceProvider>,
     )
 
+    fireEvent.click(screen.getByRole('button', { name: 'Sprinter corporativa' }))
+    expect(screen.getByRole('button', { name: 'Sprinter corporativa' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByRole('img', { name: 'Sprinter corporativa en vista 360' }))
+      .toHaveAttribute('src', '/demo-assets/turntable/sprinter/frame-001.webp')
+
     fireEvent.click(screen.getByRole('button', { name: 'Seguridad' }))
     expect(screen.getByRole('heading', { name: 'Seguridad' })).toBeVisible()
 
-    fireEvent.click(screen.getByRole('link', { name: 'Cotizar este bus' }))
+    fireEvent.click(screen.getByRole('link', { name: 'Cotizar Sprinter corporativa' }))
     expect(window.location.hash).toBe('#quote')
     expect(selectVehicle).toHaveBeenCalledOnce()
+    expect((selectVehicle.mock.calls[0][0] as CustomEvent).detail).toEqual({ vehicleId: 'sprinter' })
     window.removeEventListener('cootrasec:select-vehicle', selectVehicle)
   })
 })

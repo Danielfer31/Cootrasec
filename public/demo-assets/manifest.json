@@ -13,7 +13,11 @@
     "convoy": { "path": "/demo-assets/photography/convoy.webp", "maxBytes": 900000 }
   },
   "showroom": {
-    "model": { "path": "/demo-assets/showroom/paradiso.glb", "maxBytes": 8000000 },
-    "turntable": { "path": "/demo-assets/turntable/frame-{frame}.webp", "frames": 24, "maxBytes": 1500000 }
+    "pradoModel": { "path": "/demo-assets/showroom/prado.glb", "maxBytes": 1000000 },
+    "sprinterModel": { "path": "/demo-assets/showroom/sprinter.glb", "maxBytes": 1000000 },
+    "paradisoModel": { "path": "/demo-assets/showroom/paradiso.glb", "maxBytes": 1000000 },
+    "pradoTurntable": { "path": "/demo-assets/turntable/prado/frame-{frame}.webp", "frames": 24, "maxBytes": 1500000 },
+    "sprinterTurntable": { "path": "/demo-assets/turntable/sprinter/frame-{frame}.webp", "frames": 24, "maxBytes": 1500000 },
+    "paradisoTurntable": { "path": "/demo-assets/turntable/paradiso/frame-{frame}.webp", "frames": 24, "maxBytes": 1500000 }
   }
 }
