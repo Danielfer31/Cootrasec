@@ -1,6 +1,6 @@
 # Production Asset Ledger
 
-Los recursos finales de esta demo fueron producidos internamente a partir de los conceptos visuales aprobados y recursos procedurales propios. Se pueden regenerar con `npm run build:assets`.
+Los recursos finales de esta demo fueron producidos internamente a partir de fotografias fuente generadas para la demo, conceptos visuales aprobados y recursos procedurales propios. Las fotografias fuente y sus conversiones WebP estan comprometidas en el repositorio; no se regeneran con `npm run build:assets`.
 
 | Recurso | Origen | Licencia | Sin marca | Peso | Dimensiones | Estado |
 |---|---|---|---|---:|---|---|
@@ -16,6 +16,11 @@ Los recursos finales de esta demo fueron producidos internamente a partir de los
 | Bus generico GLB | Geometria procedural propia | Propio para la demo | Verificado | 26,460 B | N/A | Aprobado |
 | Secuencia 360 del bus | Recurso procedural validado en spike | Propio para la demo | Verificado | 903,254 B | 24 cuadros | Aprobado |
 | Video de respaldo | Derivado de hero, reveal y convoy | Propio para la demo | Verificado | 3,869,020 B | 1920x1080, 120 s, sin audio | Aprobado |
+
+## Regeneracion
+
+- `npm run build:assets` regenera los recursos procedurales y los derivados narrativos a partir de sus fuentes disponibles.
+- Las cuatro fotografias creadas mediante generacion de imagen integrada son fuentes comprometidas y sus WebP son derivados comprometidos; el comando no recrea esas fotografias fuente.
 
 ## Validacion
 
