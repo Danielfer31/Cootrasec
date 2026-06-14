@@ -1,7 +1,7 @@
 # Cootrasec Fase 2: Direccion visual
 
 **Fecha:** 2026-06-13  
-**Estado:** Direccion visual completa; pendiente de revision final
+**Estado:** Direccion visual aprobada el 2026-06-13
 **Alcance:** Conceptos visuales para escenas principales. No construir la landing completa antes de aprobar esta fase.
 
 ## Objetivo
@@ -209,5 +209,5 @@ El usuario selecciono **Viaje luminoso** como direccion dominante. El tablero te
 
 ## Proximos pasos
 
-1. Obtener la revision final del usuario sobre este documento.
-2. Escribir el plan de implementacion de la experiencia.
+1. Ejecutar `docs/superpowers/plans/2026-06-13-cootrasec-demo-inmersiva.md`.
+2. Validar los recursos finales antes de integrar todas las escenas.
