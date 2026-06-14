@@ -50,6 +50,13 @@ describe('quote rules', () => {
     expect(validateQuote(validQuote, new Date('2026-06-14T12:00:00'))).toEqual({})
   })
 
+  it('accepts an ISO date string as the injectable today value', () => {
+    expect(validateQuote(
+      { ...validQuote, date: '2026-06-14' },
+      '2026-06-14',
+    )).toEqual({ date: 'Seleccione una fecha futura.' })
+  })
+
   it('handles legacy data with missing contact fields safely', () => {
     const legacyQuote = { ...validQuote } as Partial<typeof validQuote>
     delete legacyQuote.name

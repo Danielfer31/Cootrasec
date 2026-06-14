@@ -21,14 +21,16 @@ export function recommendVehicle(input: Pick<QuoteData, 'passengers' | 'serviceT
   return 'paradiso'
 }
 
-function toLocalDateInputValue(date: Date): string {
-  const year = date.getFullYear()
-  const month = String(date.getMonth() + 1).padStart(2, '0')
-  const day = String(date.getDate()).padStart(2, '0')
+function normalizeToday(today: Date | string): string {
+  if (typeof today === 'string') return today.match(/^\d{4}-\d{2}-\d{2}/)?.[0] ?? ''
+
+  const year = today.getFullYear()
+  const month = String(today.getMonth() + 1).padStart(2, '0')
+  const day = String(today.getDate()).padStart(2, '0')
   return `${year}-${month}-${day}`
 }
 
-export function validateQuote(data: QuoteData, today = new Date()): QuoteErrors {
+export function validateQuote(data: QuoteData, today: Date | string = new Date()): QuoteErrors {
   const errors: QuoteErrors = {}
   if (!data.name?.trim()) errors.name = 'Ingrese su nombre.'
   if (!data.phone?.trim()) errors.phone = 'Ingrese su telefono.'
@@ -36,6 +38,6 @@ export function validateQuote(data: QuoteData, today = new Date()): QuoteErrors 
   if (!data.origin.trim()) errors.origin = 'Ingrese el origen.'
   if (!data.destination.trim()) errors.destination = 'Ingrese el destino.'
   if (!data.date) errors.date = 'Seleccione una fecha aproximada.'
-  else if (data.date <= toLocalDateInputValue(today)) errors.date = 'Seleccione una fecha futura.'
+  else if (data.date <= normalizeToday(today)) errors.date = 'Seleccione una fecha futura.'
   return errors
 }
