@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { demoBrand } from '../brand/demoBrand'
 import { demoContent, type VehicleId } from '../content/demoContent'
 import {
   recommendVehicle,
@@ -7,9 +8,12 @@ import {
   type QuoteErrors,
   type ServiceType,
 } from './quoteRules'
+import { buildWhatsAppUrl } from './whatsapp'
 import './Quote.css'
 
 const initialData: QuoteData = {
+  name: '',
+  phone: '',
   passengers: 1,
   serviceType: 'corporate',
   origin: '',
@@ -43,18 +47,35 @@ export function QuoteSection() {
     const nextErrors = validateQuote(data)
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length > 0) return
-    setData((current) => ({
-      ...current,
-      vehicleId: recommendVehicle(current),
-    }))
+    setData((current) => ({ ...current, vehicleId: recommendVehicle(current) }))
     setSubmitted(true)
   }
 
   const selectedVehicle = demoContent.vehicles.find((vehicle) => vehicle.id === data.vehicleId)
+  const whatsappUrl = buildWhatsAppUrl(demoBrand.whatsappFallback, data)
 
   return (
     <div className="quote-layout">
       <form className="quote-form" noValidate onSubmit={submit}>
+        <label>
+          Nombre
+          <input
+            aria-describedby={errors.name ? 'name-error' : undefined}
+            onChange={(event) => update('name', event.target.value)}
+            value={data.name}
+          />
+          {errors.name && <span className="field-error" id="name-error">{errors.name}</span>}
+        </label>
+        <label>
+          Telefono
+          <input
+            aria-describedby={errors.phone ? 'phone-error' : undefined}
+            inputMode="tel"
+            onChange={(event) => update('phone', event.target.value)}
+            value={data.phone}
+          />
+          {errors.phone && <span className="field-error" id="phone-error">{errors.phone}</span>}
+        </label>
         <label>
           Tipo de servicio
           <select
@@ -125,6 +146,9 @@ export function QuoteSection() {
             <p><strong>{selectedVehicle?.name}</strong> para {data.passengers} pasajeros.</p>
             <p>{data.origin} → {data.destination} · {data.date}</p>
             <p>Un asesor preparara una propuesta con disponibilidad y condiciones reales.</p>
+            <a className="button-link button-link--primary" href={whatsappUrl} rel="noreferrer" target="_blank">
+              Enviar por WhatsApp
+            </a>
           </>
         ) : (
           <p>Complete los datos para recibir una recomendacion conceptual.</p>

@@ -1,3 +1,5 @@
+import { publicAsset } from '../../assets/publicAsset'
+
 export type SequenceTier = 'desktop' | 'lite'
 
 export interface PreloadResult {
@@ -14,7 +16,7 @@ export function progressToFrame(progress: number, frameCount: number) {
 }
 
 export function frameUrl(tier: SequenceTier, index: number) {
-  return `/spike-assets/narrative/${tier}/frame-${String(index + 1).padStart(3, '0')}.webp`
+  return publicAsset(`/spike-assets/narrative/${tier}/frame-${String(index + 1).padStart(3, '0')}.webp`)
 }
 
 function loadImage(url: string, signal: AbortSignal) {

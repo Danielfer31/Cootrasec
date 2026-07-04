@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { publicAsset } from '../assets/publicAsset'
 import { NarrativeAnchors, NarrativeCopy, NarrativeProgress } from './HighNarrative'
 
 export function VideoNarrative() {
@@ -38,7 +39,7 @@ export function VideoNarrative() {
           <img
             alt="Bus premium recorriendo un paisaje tropical"
             className="narrative-media"
-            src="/spike-assets/narrative/source.png"
+            src={publicAsset('/spike-assets/narrative/source.png')}
           />
         ) : (
           <video
@@ -49,7 +50,7 @@ export function VideoNarrative() {
             playsInline
             preload="metadata"
             ref={videoRef}
-            src="/demo-assets/narrative/transformation.mp4"
+            src={publicAsset('/demo-assets/narrative/transformation.mp4')}
           />
         )}
         <NarrativeCopy />

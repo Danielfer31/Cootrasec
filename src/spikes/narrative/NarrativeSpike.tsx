@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { publicAsset } from '../../assets/publicAsset'
 import { frameUrl, preloadFrames, progressToFrame, type SequenceTier } from './imageSequence'
 import { VideoNarrative } from './VideoNarrative'
 import './NarrativeSpike.css'
@@ -82,7 +83,7 @@ export function NarrativeSpike() {
 
   return (
     <main className="narrative-page">
-      <a className="back-link" href="/">Volver al laboratorio</a>
+      <a className="back-link" href={import.meta.env.BASE_URL}>Volver al laboratorio</a>
       <header className="narrative-header">
         <p className="eyebrow">Experimento técnico aislado</p>
         <h1>Spike A: narrativa</h1>
@@ -107,7 +108,7 @@ export function NarrativeSpike() {
             <img
               alt="Bus conceptual en una carretera tropical"
               className="narrative-media"
-              src="/spike-assets/narrative/source.png"
+              src={publicAsset('/spike-assets/narrative/source.png')}
             />
           )}
           {videoFailed && (

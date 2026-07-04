@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { publicAsset } from '../../assets/publicAsset'
 
 interface VideoNarrativeProps {
   progress: number
@@ -32,7 +33,7 @@ export function VideoNarrative({ progress, tier, onError }: VideoNarrativeProps)
       playsInline
       preload="auto"
       ref={videoRef}
-      src={`/spike-assets/narrative/${tier}/transformation.mp4`}
+      src={publicAsset(`/spike-assets/narrative/${tier}/transformation.mp4`)}
     />
   )
 }

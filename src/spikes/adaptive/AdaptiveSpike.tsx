@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { publicAsset } from '../../assets/publicAsset'
 import type { ExperienceTier } from '../../experience/capabilities'
 import { useExperience } from '../../experience/ExperienceProvider'
 import './AdaptiveSpike.css'
@@ -21,7 +22,7 @@ export function AdaptiveSpike() {
 
   return (
     <main className="adaptive-page">
-      <a className="back-link" href="/">Volver al laboratorio</a>
+      <a className="back-link" href={import.meta.env.BASE_URL}>Volver al laboratorio</a>
       <header className="adaptive-header">
         <p className="eyebrow">Experimento técnico aislado</p>
         <h1>Spike C: calidad adaptable</h1>
@@ -63,7 +64,7 @@ export function AdaptiveSpike() {
 
       <section className={`adaptive-runtime tier-${tier}`} key={experienceRevision}>
         <article className="adaptive-representative narrative-representative">
-          <img alt="" src="/spike-assets/narrative/lite/frame-008.webp" />
+          <img alt="" src={publicAsset('/spike-assets/narrative/lite/frame-008.webp')} />
           <div>
             <p className="eyebrow">Narrativa representativa</p>
             <h2>{tier === 'reduced-motion' ? 'Contenido lineal y estable' : 'Movimiento ajustado al dispositivo'}</h2>
@@ -71,7 +72,7 @@ export function AdaptiveSpike() {
           </div>
         </article>
         <article className="adaptive-representative showroom-representative">
-          <img alt="" src="/spike-assets/turntable/frame-001.webp" />
+          <img alt="" src={publicAsset('/spike-assets/turntable/frame-001.webp')} />
           <div>
             <p className="eyebrow">Showroom representativo</p>
             <h2>{tier === 'lite' || webglFailure ? 'Fallback 360 activo' : 'Showroom WebGL bajo demanda'}</h2>
