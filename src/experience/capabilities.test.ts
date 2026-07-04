@@ -22,6 +22,16 @@ function createCapabilityTarget(search = '') {
   } as unknown as Window
 }
 
+function createPublicCapabilityTarget(search = '') {
+  return {
+    ...createCapabilityTarget(search),
+    location: {
+      hostname: 'danielfer31.github.io',
+      search,
+    },
+  } as unknown as Window
+}
+
 describe('chooseTier', () => {
   it('prioritizes reduced motion', () => {
     expect(
@@ -95,5 +105,9 @@ describe('detectCapabilities', () => {
 
   it('allows explicit full-motion preview on local demo URLs', () => {
     expect(detectCapabilities(createCapabilityTarget('?motion=full')).reducedMotion).toBe(false)
+  })
+
+  it('allows explicit full-motion preview on published demo URLs', () => {
+    expect(detectCapabilities(createPublicCapabilityTarget('?motion=full')).reducedMotion).toBe(false)
   })
 })

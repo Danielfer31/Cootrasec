@@ -48,9 +48,7 @@ function supportsWebGl(target: Window): boolean {
 
 function allowsFullMotionPreview(target: Window): boolean {
   try {
-    const { hostname, search } = target.location
-    const localHost = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '[::1]'
-    return localHost && new URLSearchParams(search).get('motion') === 'full'
+    return new URLSearchParams(target.location.search).get('motion') === 'full'
   } catch {
     return false
   }
