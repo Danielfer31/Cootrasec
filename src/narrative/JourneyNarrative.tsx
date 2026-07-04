@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { publicAsset } from '../assets/publicAsset'
 import type { ExperienceTier } from '../experience/capabilities'
 import { NarrativeAnchors, NarrativeCopy } from './HighNarrative'
 import { useScrollProgress } from './useScrollProgress'
@@ -8,25 +9,25 @@ type JourneyTier = Exclude<ExperienceTier, 'reduced-motion'>
 const officialScenes = [
   {
     id: 'hero',
-    asset: '/demo-assets/official/ninos.jpg',
+    asset: publicAsset('/demo-assets/official/ninos.jpg'),
     alt: 'Buses oficiales de Cootrasec estacionados en servicio especial',
     position: 'center 55%',
   },
   {
     id: 'trust',
-    asset: '/demo-assets/official/clientes2.jpg',
+    asset: publicAsset('/demo-assets/official/clientes2.jpg'),
     alt: 'Buses oficiales de Cootrasec prestando servicio escolar',
     position: 'center 52%',
   },
   {
     id: 'fleet',
-    asset: '/demo-assets/official/cartagenab.jpg',
+    asset: publicAsset('/demo-assets/official/cartagenab.jpg'),
     alt: 'Buses oficiales de Cootrasec prestando servicio en Cartagena',
     position: 'center 58%',
   },
   {
     id: 'reveal',
-    asset: '/demo-assets/official/clientes.jpg',
+    asset: publicAsset('/demo-assets/official/clientes.jpg'),
     alt: 'Vehiculo oficial Cootrasec para clientes particulares',
     position: 'center 52%',
   },

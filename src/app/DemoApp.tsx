@@ -1,4 +1,5 @@
 import { Component, lazy, Suspense, useEffect, type ErrorInfo, type ReactNode } from 'react'
+import { publicAsset } from '../assets/publicAsset'
 import { demoContent, type ChapterId } from '../content/demoContent'
 import { ExperienceProvider } from '../experience/ExperienceProvider'
 import { PerformanceMonitor } from '../experience/PerformanceMonitor'
@@ -94,7 +95,7 @@ export function DemoApp() {
           <img
             alt="Flota conceptual avanzando en convoy"
             className="closing-image"
-            src="/demo-assets/narrative/convoy.webp"
+            src={publicAsset('/demo-assets/narrative/convoy.webp')}
           />
           <div className="closing-route" aria-hidden="true">
             <span />

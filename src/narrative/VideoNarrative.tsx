@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { publicAsset } from '../assets/publicAsset'
 import { NarrativeAnchors, NarrativeCopy, NarrativeProgress, NarrativeRoute } from './HighNarrative'
 
 export function VideoNarrative() {
@@ -38,7 +39,7 @@ export function VideoNarrative() {
           <img
             alt="Bus premium recorriendo un paisaje tropical"
             className="narrative-media"
-            src="/spike-assets/narrative/source.png"
+            src={publicAsset('/spike-assets/narrative/source.png')}
           />
         ) : (
           <video
@@ -46,11 +47,11 @@ export function VideoNarrative() {
             className="narrative-media"
             muted
             onError={() => setFailed(true)}
-            poster="/demo-assets/narrative/hero.webp"
+            poster={publicAsset('/demo-assets/narrative/hero.webp')}
             playsInline
             preload="metadata"
             ref={videoRef}
-            src="/demo-assets/narrative/transformation.mp4"
+            src={publicAsset('/demo-assets/narrative/transformation.mp4')}
           />
         )}
         <NarrativeCopy />

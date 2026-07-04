@@ -1,5 +1,6 @@
 import { OrbitControls, useGLTF } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
+import { publicAsset } from '../assets/publicAsset'
 
 interface BusCanvasProps {
   interior: boolean
@@ -7,7 +8,7 @@ interface BusCanvasProps {
 }
 
 function BusModel({ interior }: { interior: boolean }) {
-  const { scene } = useGLTF('/demo-assets/showroom/paradiso.glb')
+  const { scene } = useGLTF(busModelPath)
   return (
     <group rotation={[0, interior ? -1.3 : -0.25, 0]}>
       <primitive object={scene} />
@@ -15,7 +16,9 @@ function BusModel({ interior }: { interior: boolean }) {
   )
 }
 
-useGLTF.preload('/demo-assets/showroom/paradiso.glb')
+const busModelPath = publicAsset('/demo-assets/showroom/paradiso.glb')
+
+useGLTF.preload(busModelPath)
 
 export default function BusCanvas({ interior, morningLight }: BusCanvasProps) {
   return (

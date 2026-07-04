@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { publicAsset } from '../assets/publicAsset'
 import { demoContent } from '../content/demoContent'
 import { preloadFrames, progressToFrame } from '../spikes/narrative/imageSequence'
 import { sceneManifest } from './sceneManifest'
@@ -18,7 +19,7 @@ export function HighNarrative() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const urls = useMemo(
     () => usableFrames.map(
-      (frame) => `/demo-assets/narrative/transformation/frame-${String(frame).padStart(3, '0')}.webp`,
+      (frame) => publicAsset(`/demo-assets/narrative/transformation/frame-${String(frame).padStart(3, '0')}.webp`),
     ),
     [],
   )

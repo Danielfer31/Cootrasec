@@ -1,9 +1,10 @@
 import { useEffect, useState, type KeyboardEvent, type PointerEvent } from 'react'
+import { publicAsset } from '../assets/publicAsset'
 
 const frameCount = 24
 
 function frameUrl(index: number) {
-  return `/demo-assets/turntable/frame-${String(index + 1).padStart(3, '0')}.webp`
+  return publicAsset(`/demo-assets/turntable/frame-${String(index + 1).padStart(3, '0')}.webp`)
 }
 
 export function TurntableFallback() {
