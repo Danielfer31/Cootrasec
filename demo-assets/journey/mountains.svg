@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 360" role="img" aria-label="Silueta de montanas tropicales">
+  <defs>
+    <linearGradient id="mountainA" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#5f7e59"/>
+      <stop offset="1" stop-color="#244b35"/>
+    </linearGradient>
+    <linearGradient id="mountainB" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#8aa36f"/>
+      <stop offset="1" stop-color="#396348"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#mountainB)" d="M0 218 96 156l98 35 118-96 104 86 117-63 103 80 128-114 137 123 111-68 138 79 101-54 132 86 157-104v214H0z"/>
+  <path fill="url(#mountainA)" d="M0 250 118 198l109 34 139-86 120 106 98-64 126 86 118-90 126 76 116-48 122 70 111-70 137 88v60H0z"/>
+</svg>
