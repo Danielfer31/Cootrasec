@@ -1,5 +1,26 @@
 import { describe, expect, it } from 'vitest'
-import { chooseTier, shouldDowngrade } from './capabilities'
+import { chooseTier, detectCapabilities, shouldDowngrade } from './capabilities'
+
+function createCapabilityTarget(search = '') {
+  return {
+    document: {
+      createElement: () => ({
+        getContext: () => ({}),
+      }),
+    },
+    location: {
+      hostname: '127.0.0.1',
+      search,
+    },
+    matchMedia: (query: string) => ({
+      matches: query.includes('prefers-reduced-motion'),
+    }),
+    navigator: {
+      hardwareConcurrency: 8,
+      deviceMemory: 8,
+    },
+  } as unknown as Window
+}
 
 describe('chooseTier', () => {
   it('prioritizes reduced motion', () => {
@@ -64,5 +85,15 @@ describe('shouldDowngrade', () => {
     const summary = { averageFps: 10, slowFrames: 120, sampleCount: 120 }
     expect(shouldDowngrade('lite', summary)).toBe(false)
     expect(shouldDowngrade('reduced-motion', summary)).toBe(false)
+  })
+})
+
+describe('detectCapabilities', () => {
+  it('respects reduced motion by default', () => {
+    expect(detectCapabilities(createCapabilityTarget()).reducedMotion).toBe(true)
+  })
+
+  it('allows explicit full-motion preview on local demo URLs', () => {
+    expect(detectCapabilities(createCapabilityTarget('?motion=full')).reducedMotion).toBe(false)
   })
 })

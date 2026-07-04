@@ -1,4 +1,4 @@
-import { Component, lazy, Suspense, type ErrorInfo, type ReactNode } from 'react'
+import { Component, lazy, Suspense, useEffect, type ErrorInfo, type ReactNode } from 'react'
 import { demoContent, type ChapterId } from '../content/demoContent'
 import { ExperienceProvider } from '../experience/ExperienceProvider'
 import { PerformanceMonitor } from '../experience/PerformanceMonitor'
@@ -53,6 +53,14 @@ function ChapterCopy({ id, level = 2 }: { id: ChapterId; level?: 1 | 2 }) {
 export function DemoApp() {
   const closing = chapter('closing')
 
+  useEffect(() => {
+    if (!window.location.hash) return
+    const frame = requestAnimationFrame(() => {
+      document.getElementById(window.location.hash.slice(1))?.scrollIntoView()
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [])
+
   return (
     <ExperienceProvider>
       <PerformanceMonitor />
@@ -88,6 +96,11 @@ export function DemoApp() {
             className="closing-image"
             src="/demo-assets/narrative/convoy.webp"
           />
+          <div className="closing-route" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </div>
           <a className="button-link button-link--primary" href="#quote">{closing.cta}</a>
         </section>
       </main>

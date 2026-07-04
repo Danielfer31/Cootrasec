@@ -12,6 +12,7 @@ export function LinearNarrative() {
           <article className="linear-scene" id={scene.id} key={scene.id}>
             {scene.id === 'trust' && <span className="linear-scene__alias" id="safety" />}
             {scene.id === 'reveal' && <span className="linear-scene__alias" id="experience" />}
+            <span className="linear-scene__route" aria-hidden="true" />
             <img alt={scene.alt} src={scene.asset} />
             <div className="chapter-copy">
               <p className="eyebrow">{chapter.eyebrow}</p>

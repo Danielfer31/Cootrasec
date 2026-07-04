@@ -6,6 +6,19 @@
     "reveal": { "path": "/demo-assets/narrative/reveal.webp", "maxBytes": 900000 },
     "convoy": { "path": "/demo-assets/narrative/convoy.webp", "maxBytes": 900000 }
   },
+  "journey": {
+    "mountains": { "path": "/demo-assets/journey/mountains.svg", "maxBytes": 12000 },
+    "palms": { "path": "/demo-assets/journey/palms.svg", "maxBytes": 12000 }
+  },
+  "official": {
+    "team": { "path": "/demo-assets/official/public1.jpg", "maxBytes": 320000 },
+    "fleetParked": { "path": "/demo-assets/official/ninos.jpg", "maxBytes": 460000 },
+    "fleetCartagena": { "path": "/demo-assets/official/cartagenab.jpg", "maxBytes": 340000 },
+    "clientVehicle": { "path": "/demo-assets/official/clientes.jpg", "maxBytes": 320000 },
+    "schoolService": { "path": "/demo-assets/official/clientes2.jpg", "maxBytes": 190000 },
+    "quotePanel": { "path": "/demo-assets/official/cotiza.jpg", "maxBytes": 240000 },
+    "fleetSmall": { "path": "/demo-assets/official/about-2.jpg", "maxBytes": 90000 }
+  },
   "showroom": {
     "model": { "path": "/demo-assets/showroom/paradiso.glb", "maxBytes": 8000000 },
     "turntable": { "path": "/demo-assets/turntable/frame-{frame}.webp", "frames": 24, "maxBytes": 1500000 }

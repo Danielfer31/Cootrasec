@@ -4,7 +4,8 @@ test('commercial demo switches tiers without duplicate narrative or showroom run
   await page.goto('/')
 
   await page.getByRole('radio', { name: 'Ligera' }).check()
-  await expect(page.getByTestId('narrative-video')).toHaveCount(1)
+  await expect(page.getByTestId('journey-narrative')).toHaveCount(1)
+  await expect(page.getByTestId('narrative-video')).toHaveCount(0)
   await expect(page.getByRole('application', { name: 'Vista 360 del bus' })).toHaveCount(1)
   await expect(page.locator('.showroom-stage canvas')).toHaveCount(0)
 })
@@ -15,7 +16,8 @@ test('missing WebGL activates lite narrative and 360 fallback', async ({ page })
   })
   await page.goto('/')
 
-  await expect(page.getByTestId('narrative-video')).toHaveCount(1)
+  await expect(page.getByTestId('journey-narrative')).toHaveCount(1)
+  await expect(page.getByTestId('narrative-video')).toHaveCount(0)
   await expect(page.getByRole('application', { name: 'Vista 360 del bus' })).toHaveCount(1)
 })
 

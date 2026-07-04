@@ -20,22 +20,24 @@ function renderTier(tier: ExperienceTier) {
 }
 
 describe('Narrative', () => {
-  it('renders only the high narrative for high tier', () => {
+  it('renders the journey narrative for high tier', () => {
     renderTier('high')
 
-    expect(screen.getByTestId('narrative-high')).toBeVisible()
-    expect(screen.queryByTestId('narrative-video')).not.toBeInTheDocument()
+    expect(screen.getByTestId('journey-narrative')).toBeVisible()
+    expect(screen.queryByTestId('narrative-high')).not.toBeInTheDocument()
     expect(screen.queryByTestId('narrative-linear')).not.toBeInTheDocument()
+    expect(screen.queryByTestId('narrative-video')).not.toBeInTheDocument()
   })
 
   it.each(['balanced', 'lite'] satisfies ExperienceTier[])(
-    'renders only the video narrative for %s tier',
+    'renders only the journey narrative for %s tier',
     (tier) => {
       renderTier(tier)
 
-      expect(screen.getByTestId('narrative-video')).toBeVisible()
+      expect(screen.getByTestId('journey-narrative')).toBeVisible()
       expect(screen.queryByTestId('narrative-high')).not.toBeInTheDocument()
       expect(screen.queryByTestId('narrative-linear')).not.toBeInTheDocument()
+      expect(screen.queryByTestId('narrative-video')).not.toBeInTheDocument()
     },
   )
 

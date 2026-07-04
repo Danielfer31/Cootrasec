@@ -7,15 +7,18 @@ import { sceneManifest } from './sceneManifest'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const frameCount = 48
+const usableFrames = [
+  ...Array.from({ length: 10 }, (_, index) => index + 1),
+  ...Array.from({ length: 7 }, (_, index) => index + 15),
+  ...Array.from({ length: 24 }, (_, index) => index + 25),
+]
 
 export function HighNarrative() {
   const rootRef = useRef<HTMLElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const urls = useMemo(
-    () => Array.from(
-      { length: frameCount },
-      (_, index) => `/demo-assets/narrative/transformation/frame-${String(index + 1).padStart(3, '0')}.webp`,
+    () => usableFrames.map(
+      (frame) => `/demo-assets/narrative/transformation/frame-${String(frame).padStart(3, '0')}.webp`,
     ),
     [],
   )
@@ -68,6 +71,7 @@ export function HighNarrative() {
           ref={canvasRef}
         />
         <NarrativeCopy />
+        <NarrativeRoute />
         <NarrativeProgress label="Secuencia cinematografica" />
       </div>
     </section>
@@ -86,15 +90,16 @@ function NarrativeAnchors() {
   )
 }
 
-function NarrativeCopy() {
+function NarrativeCopy({ activeSceneId }: { activeSceneId?: string }) {
   return (
     <div className="narrative-copy-stack">
       {sceneManifest.map((scene, index) => {
         const chapter = demoContent.chapters.find((item) => item.id === scene.id)
         if (!chapter) return null
         const Heading = index === 0 ? 'h1' : 'h2'
+        const className = scene.id === activeSceneId ? 'narrative-copy is-active' : 'narrative-copy'
         return (
-          <article className="narrative-copy" data-scene={scene.id} key={scene.id}>
+          <article className={className} data-scene={scene.id} key={scene.id}>
             <p className="eyebrow">{chapter.eyebrow}</p>
             <Heading>{chapter.title}</Heading>
             <p>{chapter.body}</p>
@@ -111,6 +116,23 @@ function NarrativeCopy() {
   )
 }
 
+const routeLabels = ['Inicio', 'Control', 'Flota', 'Llegada']
+
+function NarrativeRoute() {
+  return (
+    <div className="narrative-route" aria-hidden="true">
+      <div className="narrative-route__track">
+        <span className="narrative-route__vehicle" />
+      </div>
+      <ol>
+        {routeLabels.map((label) => (
+          <li key={label}>{label}</li>
+        ))}
+      </ol>
+    </div>
+  )
+}
+
 function NarrativeProgress({ label }: { label: string }) {
   return (
     <div className="narrative-progress" aria-hidden="true">
@@ -120,4 +142,4 @@ function NarrativeProgress({ label }: { label: string }) {
   )
 }
 
-export { NarrativeAnchors, NarrativeCopy, NarrativeProgress }
+export { NarrativeAnchors, NarrativeCopy, NarrativeProgress, NarrativeRoute }

@@ -1,16 +1,14 @@
 import { useExperience } from '../experience/ExperienceProvider'
-import { HighNarrative } from './HighNarrative'
+import { JourneyNarrative } from './JourneyNarrative'
 import { LinearNarrative } from './LinearNarrative'
-import { VideoNarrative } from './VideoNarrative'
 import './Narrative.css'
 
 export function Narrative() {
   const { experienceRevision, tier } = useExperience()
-  const Variant = tier === 'high'
-    ? HighNarrative
-    : tier === 'reduced-motion'
-      ? LinearNarrative
-      : VideoNarrative
 
-  return <Variant key={`${tier}-${experienceRevision}`} />
+  if (tier === 'reduced-motion') {
+    return <LinearNarrative key={`${tier}-${experienceRevision}`} />
+  }
+
+  return <JourneyNarrative key={`${tier}-${experienceRevision}`} tier={tier} />
 }

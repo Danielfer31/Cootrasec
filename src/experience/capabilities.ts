@@ -46,11 +46,22 @@ function supportsWebGl(target: Window): boolean {
   }
 }
 
+function allowsFullMotionPreview(target: Window): boolean {
+  try {
+    const { hostname, search } = target.location
+    const localHost = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '[::1]'
+    return localHost && new URLSearchParams(search).get('motion') === 'full'
+  } catch {
+    return false
+  }
+}
+
 export function detectCapabilities(target: Window = window): CapabilitySnapshot {
   const navigator = target.navigator as NavigatorWithMemory
+  const reducedMotion = target.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   return {
-    reducedMotion: target.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    reducedMotion: reducedMotion && !allowsFullMotionPreview(target),
     webgl: supportsWebGl(target),
     memoryGb: navigator.deviceMemory ?? null,
     cores: navigator.hardwareConcurrency || 1,

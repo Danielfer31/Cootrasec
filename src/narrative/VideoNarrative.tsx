@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { NarrativeAnchors, NarrativeCopy, NarrativeProgress } from './HighNarrative'
+import { NarrativeAnchors, NarrativeCopy, NarrativeProgress, NarrativeRoute } from './HighNarrative'
 
 export function VideoNarrative() {
   const rootRef = useRef<HTMLElement>(null)
@@ -46,6 +46,7 @@ export function VideoNarrative() {
             className="narrative-media"
             muted
             onError={() => setFailed(true)}
+            poster="/demo-assets/narrative/hero.webp"
             playsInline
             preload="metadata"
             ref={videoRef}
@@ -53,6 +54,7 @@ export function VideoNarrative() {
           />
         )}
         <NarrativeCopy />
+        <NarrativeRoute />
         <NarrativeProgress label={failed ? 'Imagen de respaldo' : 'Video sincronizado'} />
       </div>
     </section>

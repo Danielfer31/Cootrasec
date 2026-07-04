@@ -17,7 +17,7 @@ describe('App routing', () => {
     visit()
 
     expect(
-      screen.getByRole('heading', { name: 'El viaje que su empresa merece.' }),
+      screen.getByRole('heading', { name: 'La flota se mueve con su empresa.' }),
     ).toBeVisible()
     expect(screen.getByRole('main')).toHaveAttribute('id', 'main-content')
   })
